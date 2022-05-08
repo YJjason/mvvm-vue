@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="mvvm.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <input type="text" v-model="school.name">
+  <div>{{school.name}}</div>
+  <div>{{school.age}}</div>
+  {{getNewName}}
+  <ul>
+    <li>1</li>
+    <li>2</li>
+  </ul>
+  <div v-html="message"></div>
+  <button v-on:click="change">更新数据</button>
+</div>
+
+
+<script>
+  // 1.创建一个vue 实例
+  let vm = new Vue({
+    el: "#app",
+    data: {
+      school: {
+        name: "jack",
+        age: 20,
+      },
+      message:'233323ssdsd'
+    },
+    computed: {
+      getNewName() {
+        return this.school.name + "sfsfsds";
+      },
+    },
+    methods: {
+      change() {
+        this.school.name = "leo";
+      },
+    },
+  });
+</script>
+
+</body>
+</html>
